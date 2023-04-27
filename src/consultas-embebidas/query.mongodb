@@ -4,3 +4,12 @@ use("my_store");
 db.users.find({
     "address.city": "Guatemala"
 });
+
+db.users.find();
+
+//de 1 a muchos (embebida)
+// forma uno
+db.orders.find({"items.quantity": 3});
+
+// forma dos
+db.orders.find({ "items.quantity": { $gte: 3 }});

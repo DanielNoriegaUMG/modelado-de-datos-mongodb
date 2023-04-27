@@ -1,0 +1,18 @@
+use("my_store");
+
+db.orders.insertOne({
+    user_id: ObjectId('6449e3ffead70d7475b66709'),
+    date: "2023-02-10",
+    items: [
+        {
+            name: 'Labial carmesi',
+            price: 100,
+            quantity: 1
+        },
+        {
+            name: 'Yogurt LALA',
+            price: 25,
+            quantity: 3
+        }
+    ]
+});
