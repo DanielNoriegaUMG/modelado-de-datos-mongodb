@@ -1,0 +1,32 @@
+use("my_store");
+
+// consulta embebida
+db.stores.find({storeid: "ST001"});
+db.stores_details.find({storeid: "ST001"});
+
+// este ejemplo el "details arrojara un arreglo"
+db.stores.aggregate([
+    {
+        $lookup: {
+          from: 'stores_details',
+          localField: 'storeid',
+          foreignField: 'storeid',
+          as: 'details'
+        }
+    }
+]);
+
+// En este ejemplo "details" lo lanzara como un objeto
+db.stores.aggregate([
+    {
+        $lookup: {
+          from: 'stores_details',
+          localField: 'storeid',
+          foreignField: 'storeid',
+          as: details
+        }
+    },
+    {
+        $unwind: '$details'
+    }
+]);

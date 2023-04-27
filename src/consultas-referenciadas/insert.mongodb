@@ -1,0 +1,16 @@
+use("my_store");
+
+db.stores.insertOne({
+    storeid: "ST001",
+    name: "Meland Store",
+    address: "Mexico 452",
+});
+
+db.stores_details.insertOne({
+    storeid: "ST001",
+    description: "text to description to product",
+    manager: {
+        email: "example@gmail.com",
+        cellphone: "2345-1234"
+    }
+});
