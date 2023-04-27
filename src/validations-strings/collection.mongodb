@@ -1,0 +1,23 @@
+use("my_store");
+
+// definiendo un schema
+db.createCollection('users', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object', // definiendo de que tipo sera
+            required: ['email', 'password'], // campos requeridos
+            properties: { //validando propiedades
+                first_name: {
+                    bsonType: 'string'
+                },
+                last_name: {
+                    bsonType: 'string'
+                },
+                email: {
+                    bsonType: 'string',
+                    pattern: '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$' //validar que sea un email
+                }
+            }
+        }
+    }
+});

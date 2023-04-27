@@ -1,0 +1,36 @@
+use("my_store");
+
+// definiendo un schema
+db.createCollection('products', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object', // definiendo de que tipo sera
+            required: ['name'], // campos requeridos
+            properties: { //validando propiedades
+                name: {
+                    bsonType: 'string'
+                },
+                sizes: {
+                    bsonType: 'array',
+                    minItems: 1, // limite minimo de items en el array
+                    uniqueItems: true, // evitar valores duplicados
+                    items: { // elementos dentro del array
+                        bsonType: 'string'
+                    }
+                },
+                category: {
+                    bsonType: 'object',
+                    required: ['name'],
+                    properties: {
+                        name: {
+                            bsonType: 'string'
+                        },
+                        image: {
+                            bsonType: 'string'
+                        }
+                    }
+                }
+            }
+        }
+    }
+});

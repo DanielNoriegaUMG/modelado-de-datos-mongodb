@@ -1,0 +1,9 @@
+use("my_store");
+
+db.users.insertOne({
+    first_name: 'Melany',
+    last_name: 'Salazar',
+    email: 'mel123@gmail.com',
+    password: 'mel123',
+    role: 'admin'
+});

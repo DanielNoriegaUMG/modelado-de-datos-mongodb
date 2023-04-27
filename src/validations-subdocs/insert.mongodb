@@ -1,0 +1,11 @@
+use("my_store");
+
+db.products.insertOne({
+    name: 'PS5',
+    description: 'Consola de Sony',
+    sizes: ['L', 'M', 'S'],
+    category: {
+        name: 'Home',
+        image: 'https//:home.com'
+    }
+});
