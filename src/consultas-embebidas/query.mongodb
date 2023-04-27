@@ -1,0 +1,6 @@
+use("my_store");
+
+// consulta embebida
+db.users.find({
+    "address.city": "Guatemala"
+});
