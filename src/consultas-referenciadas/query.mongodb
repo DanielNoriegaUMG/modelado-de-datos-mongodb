@@ -4,6 +4,8 @@ use("my_store");
 db.stores.find({storeid: "ST001"});
 db.stores_details.find({storeid: "ST001"});
 
+
+//DE UNO A UNO
 // este ejemplo el "details arrojara un arreglo"
 db.stores.aggregate([
     {
@@ -28,5 +30,42 @@ db.stores.aggregate([
     },
     {
         $unwind: '$details'
+    }
+]);
+
+
+
+// DE UNO A MUCHOS
+// FORMA UNO PARA TRAER TODAS LAS ORDENES
+db.orders.aggregate([
+    {
+        $match: {
+          _id: ObjectId('644b18586ea63476b23574e0')
+        }
+    },
+    {
+        $lookup: {
+          from: 'users',
+          localField: 'user_id',
+          foreignField: '_id',
+          as: 'user'
+        }
+    }
+]);
+
+// FORMA DOS PARA HACER MATCH CON UNA ORDEN EN ESPECIFICO
+db.orders.aggregate([
+    {
+        $match: {
+          _id: ObjectId('644b18586ea63476b23574e0')
+        }
+    },
+    {
+        $lookup: {
+          from: 'users',
+          localField: 'user_id',
+          foreignField: '_id',
+          as: 'user'
+        }
     }
 ]);
