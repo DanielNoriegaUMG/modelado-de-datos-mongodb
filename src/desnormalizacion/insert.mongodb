@@ -1,0 +1,20 @@
+use("my_store");
+
+db.orders.insertOne({
+    user_id: ObjectId('644b1804341e5151b1cdfe50'),
+    date: "2023-08-10",
+    items: [
+        {
+            name: 'Producto 1',
+            price: 20,
+            quantity: 4,
+            product_id: ObjectId('644b1c83d1b9041dd7491b1e') // hace refenrencia a la coleccion de products
+        },
+        {
+            name: 'Producto 2',
+            price: 35,
+            quantity: 2,
+            product_id: ObjectId('644b1c83d1b9041dd7491b1f')// hace refenrencia a la coleccion de products
+        }
+    ]
+});

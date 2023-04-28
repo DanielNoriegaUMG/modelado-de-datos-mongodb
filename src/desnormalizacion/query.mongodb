@@ -1,0 +1,5 @@
+use("my_store");
+
+db.products.find();
+db.orders.find();
+db.orders.findOne({ _id: ObjectId('644b2767d0f1aba984c64416') });

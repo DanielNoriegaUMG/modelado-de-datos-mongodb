@@ -33,3 +33,7 @@ db.order.insertOne({
 ```
 
 En el 90% de los casos, cuando es una relacion 1:1 suele ser una consulta **EMBEBIDA**, pero uno de los casos donde se usa la relacion **REFERENCIADA**, es cuando el documento ya es muy grande, cerca del limite de 16 mb y ejor se saca informacion para mejorar el rendimiento. También se pueden usar combinados, si usas el ObjectId, para referenciar el total de datos y agregar los 2 o 3 campos de los más comunes que se usan juntas para evitar la consulta a la segunda colección.
+
+## Desnormalización
+
+Si vienes de bases de datos relacionales como *MySQL*,*PostgreSQL*, *SQLite*, *SQL Server* entre otras, habras escuchado el tema de **normalización**, bueno, para las bases de datos no relacionales (*NoSQL*) es lo contrario, aca es el proceso de optimizar el funcionamiento de una DB agregando datos redundantes, o sea, datos repetidos.
