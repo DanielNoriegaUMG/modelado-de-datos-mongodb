@@ -1,0 +1,14 @@
+use("my_store");
+
+db.products.insertMany([
+    {
+        name: 'Producto 1',
+        sizes: ['S', 'M'],
+        price: 20
+    },
+    {
+        name: 'Producto 2',
+        sizes: ['L'],
+        price: 35
+    }
+]);

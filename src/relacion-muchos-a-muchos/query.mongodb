@@ -1,0 +1,17 @@
+use("my_store");
+
+db.products.find();
+
+db.stores.find();
+
+// CONSULTA DE MUCHOS A MUCHOS
+db.stores.aggregate([
+    {
+        $lookup: {
+          from: 'products', //documento de referencia para consulta
+          localField: 'products_ids', // clave para traer datos
+          foreignField: '_id', // por medio de que se hara referencia
+          as: 'products' // salida de consulta
+        }
+    }
+]);
