@@ -15,3 +15,7 @@ db.stores.aggregate([
         }
     }
 ]);
+
+// RELACIONES CIRCURALES
+db.stores.find(); // debe de aparecer un campo que se llame products_ids
+db.products.find(); // debe de aparecer un campo que se llame stores_ids
