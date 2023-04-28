@@ -1,0 +1,3 @@
+use("my_store");
+
+db.orders.findOne({_id:ObjectId('644b2ab7a9b3caa42906eea3')});

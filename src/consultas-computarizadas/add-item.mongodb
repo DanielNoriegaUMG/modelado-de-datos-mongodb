@@ -1,0 +1,20 @@
+use("my_store");
+
+//  644b2ab7a9b3caa42906eea3 -> id de la order de compra
+
+db.orders.updateOne(
+    { _id: ObjectId('644b2ab7a9b3caa42906eea3') },
+    {
+        $push: {
+            items: {
+                name: 'Producto 1',
+                price: 20,
+                quantity: 4,
+                product_id: ObjectId('644b1c83d1b9041dd7491b1e') // hace refenrencia a la coleccion de products
+            }
+        },
+        $inc: {
+            total: 20 * 4
+        }
+    }
+);
